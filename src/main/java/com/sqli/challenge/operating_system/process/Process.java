@@ -7,22 +7,22 @@ import java.util.List;
 public class Process {
     private final String name;
     private final List<Operation> operations;
-    private int operationToExecute;
+    private int operationsToExecute;
 
     public Process(String name, List<Operation> operations) {
         this.name = name;
         this.operations = operations;
-        this.operationToExecute = 0;
+        this.operationsToExecute = operations.size()-1;
     }
 
     public Operation executeOperation() {
         if (this.hasOperationToExecute())
-            return operations.get(operationToExecute++);
+            return operations.get(operationsToExecute--);
         return null;
     }
 
     public boolean hasOperationToExecute() {
-        return this.operations.size() > operationToExecute;
+        return operationsToExecute >= 0;
     }
 
     public String print() {
