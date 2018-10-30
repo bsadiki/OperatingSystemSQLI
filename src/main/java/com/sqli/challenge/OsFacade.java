@@ -13,7 +13,7 @@ public class OsFacade {
     private final ProcessFactory processFactory;
     private SchedulingStrategy schedulingStrategy;
     public OsFacade() {
-        this.operatingSystem = new OperatingSystem(new ArrayList<>());
+        this.operatingSystem = new OperatingSystem();
         this.processFactory = new ProcessFactory();
         this.schedulingStrategy = FIFOSchedulingStrategy.getInstance();
     }
